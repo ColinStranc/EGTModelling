@@ -20,7 +20,8 @@ class TestEGTStudy(TestCase):
         self.assert_default_value("cost to those punished", egts.DFLT_PUNISHED_COST, study.punished_cost)
         self.assert_default_value("cost to the punisher", egts.DFLT_PUNISHER_COST, study.punisher_cost)
         self.assert_default_value("societal threat level", egts.DFLT_SOCIETAL_THREAT, study.societal_threat)
-
+        self.assert_default_value("turn count", egts.DFLT_TURN_COUNT, study.turn_count)
+        self.assert_default_value("game max pay", egts.DFLT_GAME_MAX_PAY, study.game_max_pay)
 
     # This should really be a multi test that runs through all numbers up to something.
     def test_societal_threat_can_be_divisible_by_five(self):

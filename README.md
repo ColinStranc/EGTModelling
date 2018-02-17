@@ -34,3 +34,4 @@ EGTStudy parameters
 - punished_cost
 - punishing_cost
 - societal_threat
+- game_max_pay

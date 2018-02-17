@@ -17,6 +17,8 @@ DFLT_CONTRIBUTION_COST = 1
 DFLT_PUNISHED_COST = 3 / 2
 DFLT_PUNISHER_COST = 1 / 2
 DFLT_SOCIETAL_THREAT = 5
+DFLT_TURN_COUNT = 100
+DFLT_GAME_MAX_PAY = 30
 
 
 class EGTStudy(object):
@@ -57,3 +59,8 @@ class EGTStudy(object):
         self._societal_threat = DFLT_SOCIETAL_THREAT
         self.public_goods_game = DFLT_PUBLIC_GOODS_GAME
         self.mutation_rate = DFLT_MUTATION_RATE
+        self.turn_count = DFLT_TURN_COUNT
+        self.game_max_pay = DFLT_GAME_MAX_PAY
+
+    def run(self):
+        self.prepare_grid()
