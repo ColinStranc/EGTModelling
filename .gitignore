@@ -103,3 +103,6 @@ ENV/
 # pyCharm things
 .idea/workspace.xml
 .idea/tasks.xml
+
+# mac files
+.DS_Store
