@@ -20,8 +20,17 @@ Basic "turn" overview.
 
 ## Configuration
 EGTStudy parameters
-- (notimplemented) gridsize
-- (notimplemented) birthrate
-- (notimplemented) base_pay
-- (notimplemented) game
-- (notimplemented) game_reps
+- grid_size
+- birth_mode
+- birth_rate
+- birth_count
+- death_rate
+- base_pay
+- game_mode
+- game_reps
+- mutation_rate
+- pgg_mult
+- contribution_cost
+- punished_cost
+- punishing_cost
+- societal_threat
