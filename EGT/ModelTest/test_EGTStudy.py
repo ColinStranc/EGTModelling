@@ -35,6 +35,22 @@ class TestEGTStudy(TestCase):
         with self.assertRaises(Exception):
             study.societal_threat = non_five_multiple
 
+    def test_birth_mode_is_count_or_rate(self):
+        study = egts.EGTStudy()
+
+        study.birth_mode = egts.BIRTH_MODE_COUNT
+        self.assertEqual(egts.BIRTH_MODE_COUNT, study.birth_mode, "Birth mode not set to count")
+
+        study.birth_mode = egts.BIRTH_MODE_RATE
+        self.assertEqual(egts.BIRTH_MODE_RATE, study.birth_mode, "Birth mode not set to rate")
+
+        study.birth_mode = egts.BIRTH_MODE_COUNT
+        self.assertEqual(egts.BIRTH_MODE_COUNT, study.birth_mode,
+                         "Birth mode not set to default ({0})".format(str(egts.DFLT_BIRTH_MODE)))
+
+        with self.assertRaises(Exception):
+            study.birth_mode = "NOT_ANYTHING_SPECIAL"
+
     def assert_default_value(self, attr, expected, actual):
         self.assertEqual(expected, actual, self.default_incorrect_message(attr, expected, actual))
 
