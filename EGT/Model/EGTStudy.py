@@ -1,3 +1,4 @@
+import EGT.Model.EGTGrid as egtg
 
 
 BIRTH_MODE_COUNT = "COUNT"
@@ -45,6 +46,8 @@ class EGTStudy(object):
                             .format(value,BIRTH_MODE_COUNT, BIRTH_MODE_RATE))
 
     def __init__(self):
+        self._grid = None
+
         self.grid_size = DFLT_GRID_SIZE
         self.game_reps = DFLT_GAME_REPS
         self._birth_mode = DFLT_BIRTH_MODE
@@ -62,5 +65,55 @@ class EGTStudy(object):
         self.turn_count = DFLT_TURN_COUNT
         self.game_max_pay = DFLT_GAME_MAX_PAY
 
+        self._initialized = False
+
     def run(self):
-        self.prepare_grid()
+        self._prepare_grid()
+
+        for i in range(0, self.turn_count):
+            self._stage_birth()
+            #self._stage_pay()
+            #self._stage_fitness()
+            #self._stage_reproduction()
+            #self._stage_mutation()
+            #self._stage_death()
+
+            #self._log_stage()
+
+    # ----------------------------------------
+    #   Turn Stages
+    # ----------------------------------------
+
+    def _prepare_grid(self):
+        if self._initialized:
+            raise Exception("Study has already been initialized")
+
+        self._initialized = True
+
+        self._grid = egtg.EGTGrid(self.grid_size)
+
+    def _stage_birth(self):
+        if self._birth_mode == BIRTH_MODE_COUNT:
+            for i in range(0, self.birth_count):
+                new_culture = self._pick_random_strategy()
+
+                self._grid.add_random_culture(new_culture)
+
+    #def _stage_pay(self):
+        #self._assign_base_pay()
+        #self._assign_pgg_pay()
+
+    #def _stage_fitness(self):
+        # don't know yet
+
+    #def _stage_reproduction(self):
+        #self._grid.reproduce()
+
+    #def _stage_mutation(self):
+
+    # ----------------------------------------
+    #   Helpers
+    # ----------------------------------------
+
+    def _pick_random_strategy(self):
+        return "strategy1"
