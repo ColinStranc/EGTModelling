@@ -16,3 +16,19 @@ class EGTGrid(object):
                     count += 1
 
         return count
+
+    def add_culture(self, index, cooperation_strategy, punishment_strategy):
+        if self.invalid_index(index):
+            raise Exception("({0},{1}) invalid index, cannot create culture.".format(index[0], index[1]))
+
+        self._grid[index[0], index[1]] = Tile.Tile()
+
+    def invalid_index(self, index):
+        if index[0] >= self._grid_size or index[1] >= self._grid_size:
+            return True
+
+        if index[0] < 0 or index[1] < 0:
+            return True
+
+        return False
+
